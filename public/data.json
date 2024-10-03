@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "isFriend": true,
+    "title": "John",
+    "description": "John is a good friend from high school.",
+    "image": "corona.gif"
+  },
+  {
+    "id": 2,
+    "isFriend": false,
+    "title": "Tom",
+    "description": "Tom used to be a good friend but became an enemy after a fallout.",
+    "image": "corona.gif"
+  },
+  {
+    "id": 3,
+    "isFriend": true,
+    "title": "Emily",
+    "description": "Emily is a loyal and trustworthy friend.",
+    "image": "corona.gif"
+  },
+  {
+    "id": 4,
+    "isFriend": false,
+    "title": "Jake",
+    "description": "Jake is a competitive rival.",
+    "image": "corona.gif"
+  },
+  {
+    "id": 5,
+    "isFriend": true,
+    "title": "Sophia",
+    "description": "Sophia is a friend from college.",
+    "image": "corona.gif"
+  },
+  {
+    "id": 6,
+    "isFriend": false,
+    "title": "Max",
+    "description": "Max is an opponent in business.",
+    "image": "corona.gif"
+  }
+]
