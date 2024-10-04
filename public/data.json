@@ -4,41 +4,47 @@
     "isFriend": true,
     "title": "John",
     "description": "John is a good friend from high school.",
-    "image": "corona.gif"
+    "details_description": "John and I met during our freshman year of high school. He was the type of person who would always lend a hand, whether it was for homework, personal issues, or just needing someone to talk to. Over the years, we've shared countless memories — from late-night study sessions to fun road trips. John has always been reliable and someone I can count on no matter the situation. Even as life takes us in different directions, we still keep in touch regularly, and he's one of the few people I trust completely. His loyalty and sense of humor make him an irreplaceable friend in my life.",
+    "lottie": "/b7.json"
   },
   {
     "id": 2,
     "isFriend": false,
     "title": "Tom",
     "description": "Tom used to be a good friend but became an enemy after a fallout.",
-    "image": "corona.gif"
+    "details_description": "Tom and I were inseparable for years. We had a friendship that felt like it could withstand anything. Unfortunately, a misunderstanding escalated into a serious fallout. Over time, the differences between us became too difficult to bridge, and what was once a strong bond turned into tension and resentment. Despite the fallout, there were good times, and it’s hard to forget how close we once were. The situation with Tom taught me a lot about communication and the fragility of friendships. Now, we hardly speak, but every now and then, I wonder if things could have been different.",
+    "lottie": "/lotties/b1.json"
   },
   {
     "id": 3,
     "isFriend": true,
     "title": "Emily",
     "description": "Emily is a loyal and trustworthy friend.",
-    "image": "corona.gif"
+    "details_description": "Emily is the kind of friend who is always there, no matter what. She has this incredible ability to listen without judgment and offer advice when needed. We've known each other since college, and I have to say, she's one of the most dependable people in my life. Whether I'm having a rough day or need someone to celebrate with, she's the person I call. We've shared countless moments — some filled with laughter, others with tears. Through every life change, Emily has remained a constant, reminding me of the importance of loyalty and trust in a friendship. She's truly one of a kind.",
+    "lottie": "https://lottie.host/44bc3216-db0e-455a-935d-e4d113cba4aa/6MVqkyGNWB.json"
   },
   {
     "id": 4,
     "isFriend": false,
     "title": "Jake",
     "description": "Jake is a competitive rival.",
-    "image": "corona.gif"
+    "details_description": "Jake and I have always been competitive with each other. Whether it was in school, sports, or even in our professional lives, there was always this underlying tension between us. But in a way, it was a good thing — it pushed me to work harder and be better. While we're not friends in the traditional sense, I respect him. There's always been this mutual understanding that we push each other to achieve more. It's a complicated relationship, filled with both rivalry and a strange kind of respect. Jake is someone who keeps me on my toes, and I have to admit, it's been beneficial for my personal growth.",
+    "lottie": "/b3.json"
   },
   {
     "id": 5,
     "isFriend": true,
     "title": "Sophia",
     "description": "Sophia is a friend from college.",
-    "image": "corona.gif"
+    "details_description": "Sophia and I met during our sophomore year in college, and we instantly clicked. She has this infectious energy that makes everyone around her feel comfortable and appreciated. We've been through a lot together — from the stress of final exams to celebrating each other's achievements. What I admire most about Sophia is her resilience; no matter what life throws at her, she faces it head-on with a positive attitude. Even though we don't see each other as much anymore, I know she's always just a phone call away. Sophia is the kind of friend who, no matter the distance, remains close at heart.",
+    "lottie": "/b4.json"
   },
   {
     "id": 6,
     "isFriend": false,
     "title": "Max",
     "description": "Max is an opponent in business.",
-    "image": "corona.gif"
+    "details_description": "Max and I have crossed paths multiple times in the business world, and it's never been easy. We often find ourselves competing for the same deals or clients, and it's always a battle. While we don't see eye-to-eye on many things, I respect his work ethic and dedication. Max is someone who doesn't take failure lightly, and his drive has pushed me to work harder in my own endeavors. Though we're rivals, I think we both understand that our competition has made us better at what we do. There's a mutual, albeit unspoken, respect between us, even if we wouldn't admit it openly.",
+    "lottie": "/b6.json"
   }
 ]
