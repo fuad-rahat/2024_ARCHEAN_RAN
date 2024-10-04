@@ -1,10 +1,7 @@
 'use client';
-import dynamic from 'next/dynamic';
 import React, { useState, useEffect } from 'react';
-
-// Dynamically import AnimatedTooltip and Lottie, with SSR disabled
-const AnimatedTooltip = dynamic(() => import('@/components/ui/animated-tooltip'), { ssr: false });
-const LottiePlayer = dynamic(() => import('react-lottie-player'), { ssr: false });
+import { AnimatedTooltip } from '@/components/ui/animated-tooltip';
+import Lottie from 'react-lottie-player';  // Import Lottie player
 
 const Live = () => {
   const [data, setData] = useState([]);
@@ -12,15 +9,17 @@ const Live = () => {
   const [enemyAnimationData, setEnemyAnimationData] = useState(null);
 
   useEffect(() => {
+    // Fetch the friends and enemies data
     fetch('/data.json')
       .then((res) => res.json())
       .then((data) => setData(data));
 
+    // Fetch Lottie animations from public folder
     fetch('/b5.json')
       .then((response) => response.json())
       .then((data) => setFriendAnimationData(data));
 
-    fetch('/b2.json')
+    fetch('/b2.json') // Change this to the correct file for enemies if different
       .then((response) => response.json())
       .then((data) => setEnemyAnimationData(data));
   }, []);
@@ -37,11 +36,11 @@ const Live = () => {
           <div className="text-center">
             <p className="bg-sky-500 text-white text-2xl py-2 px-4 rounded-full shadow-md">Friends</p>
             <h2 className="text-xl mt-4 font-semibold text-gray-800">Cherished Connections</h2>
-            <p className="text-gray-600 mt-2">These are the people who stand by your side, through thick and thin.</p>
+            <p className="text-gray-600 mt-2">These are the people who stand by your side, through thick and thin. Your trusted circle of friends, always there to support you.</p>
           </div>
 
           {friendAnimationData && (
-            <LottiePlayer
+            <Lottie
               autoplay
               loop
               play
@@ -65,7 +64,7 @@ const Live = () => {
           </div>
 
           {enemyAnimationData && (
-            <LottiePlayer
+            <Lottie
               autoplay
               loop
               play
