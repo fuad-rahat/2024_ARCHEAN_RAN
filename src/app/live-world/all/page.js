@@ -1,10 +1,10 @@
 'use client';
 import dynamic from 'next/dynamic';
 import React, { useState, useEffect } from 'react';
-import { AnimatedTooltip } from '@/components/ui/animated-tooltip';
 
-// Dynamically import Lottie for client-side rendering only
-const ClientLottie = dynamic(() => import('@/components/ClientLottie'), { ssr: false });
+// Dynamically import AnimatedTooltip and Lottie, with SSR disabled
+const AnimatedTooltip = dynamic(() => import('@/components/ui/animated-tooltip'), { ssr: false });
+const LottiePlayer = dynamic(() => import('react-lottie-player'), { ssr: false });
 
 const Live = () => {
   const [data, setData] = useState([]);
@@ -37,11 +37,14 @@ const Live = () => {
           <div className="text-center">
             <p className="bg-sky-500 text-white text-2xl py-2 px-4 rounded-full shadow-md">Friends</p>
             <h2 className="text-xl mt-4 font-semibold text-gray-800">Cherished Connections</h2>
-            <p className="text-gray-600 mt-2">These are the people who stand by your side, through thick and thin. Your trusted circle of friends, always there to support you.</p>
+            <p className="text-gray-600 mt-2">These are the people who stand by your side, through thick and thin.</p>
           </div>
 
           {friendAnimationData && (
-            <ClientLottie
+            <LottiePlayer
+              autoplay
+              loop
+              play
               animationData={friendAnimationData}
               className="w-72 h-72 mb-28"
             />
@@ -62,7 +65,10 @@ const Live = () => {
           </div>
 
           {enemyAnimationData && (
-            <ClientLottie
+            <LottiePlayer
+              autoplay
+              loop
+              play
               animationData={enemyAnimationData}
               className="w-72 h-72 mb-28"
             />

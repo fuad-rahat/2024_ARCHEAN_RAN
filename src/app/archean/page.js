@@ -13,7 +13,7 @@ export default function ArcheanPage() {
         >
           <source src="/demo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> 
       </div>
 
       {/* Back Button */}
