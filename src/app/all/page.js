@@ -72,7 +72,9 @@ const Live = () => {
             <div className="text-center">
               <p className="bg-red-500 text-white text-2xl py-2 px-4 rounded-full shadow-md">Enemies</p>
               <h2 className="text-xl mt-4 font-semibold text-gray-800">Frenemies or Foes?</h2>
-              <p className="text-gray-600 mt-2">They challenge you, push your boundaries, and sometimes remind you of the value of keeping your friends closer.</p>
+              <p className="text-gray-600 mt-2">
+                They challenge you, push your boundaries, and sometimes remind you of the value of keeping your friends closer.
+              </p>
             </div>
 
             {enemyAnimationData && (

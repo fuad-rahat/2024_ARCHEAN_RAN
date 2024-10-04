@@ -1,5 +1,6 @@
 'use client';
 import dynamic from 'next/dynamic';
+import Image from 'next/image'; // Import Image from next/image
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -53,9 +54,11 @@ export default function DataDetails({ params }) {
             {currentItem.lottie && lottieData ? (
               <ClientLottie animationData={lottieData} className="w-60 h-60 mx-auto" />
             ) : (
-              <img
+              <Image
                 src={`/${currentItem.image}`}
                 alt={currentItem.title}
+                width={240}
+                height={240}
                 className="w-60 h-60 object-cover mx-auto rounded-lg shadow-md"
               />
             )}

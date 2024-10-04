@@ -12,7 +12,7 @@ const Page = () => {
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-4">
             <strong>How Microorganisms Are First Created:</strong><br />
-            Microorganisms first appeared on Earth billions of years ago. Scientists believe that, in the early conditions of Earth, simple molecules formed due to chemical reactions in the warm waters. Over time, these molecules combined to create more complex microorganisms. The first microorganisms were very simple, like bacteria. They reproduced by splitting into two, a process called cell division. This early life is thought to have started about 3.8 billion years ago when the Earth's environment had hot water, gases, and various chemicals that supported the creation of life.
+            Microorganisms first appeared on Earth billions of years ago. Scientists believe that, in the early conditions of Earth, simple molecules formed due to chemical reactions in the warm waters. Over time, these molecules combined to create more complex microorganisms. The first microorganisms were very simple, like bacteria. They reproduced by splitting into two, a process called cell division. This early life is thought to have started about 3.8 billion years ago when the Earths environment had hot water, gases, and various chemicals that supported the creation of life.
           </p>
           <p className="text-gray-700 text-lg leading-relaxed mb-4">
             <strong>How Microorganisms Live:</strong><br />
