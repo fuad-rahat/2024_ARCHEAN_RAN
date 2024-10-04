@@ -17,7 +17,7 @@ export default function DataDetails({ params }) {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch('http://localhost:3000/data.json');
+      const res = await fetch('/data.json');
       const json = await res.json();
       setData(json);
 
