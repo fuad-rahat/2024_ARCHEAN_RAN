@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -22,9 +23,19 @@ export default function Navbar() {
           {/* Logo Section */}
           <div className="flex-shrink-0">
             <Link href="/" onClick={() => handleLinkClick('/')}>
-              <span className="text-white text-3xl font-extrabold tracking-wide cursor-pointer hover:text-gray-200 transition-all duration-300">
-                Archean
-              </span>
+              <div className="flex items-center">
+                {/* Fixing the Image */}
+                <Image
+                  src="/Archean.jpg" // Assuming you have this image in the public folder
+                  alt="Archean Logo"
+                  width={40}
+                  height={40}
+                  className="h-10 rounded-full w-10"
+                />
+                <span className="text-white text-3xl font-extrabold tracking-wide cursor-pointer hover:text-gray-200 transition-all duration-300 ml-2">
+                  Archean
+                </span>
+              </div>
             </Link>
           </div>
 
