@@ -1,7 +1,10 @@
 'use client';
+import dynamic from 'next/dynamic';
 import React, { useState, useEffect } from 'react';
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip';
-import Lottie from 'react-lottie-player';  // Import Lottie player
+
+// Dynamically import Lottie for client-side rendering only
+const ClientLottie = dynamic(() => import('@/components/ClientLottie'), { ssr: false });
 
 const Live = () => {
   const [data, setData] = useState([]);
@@ -9,17 +12,15 @@ const Live = () => {
   const [enemyAnimationData, setEnemyAnimationData] = useState(null);
 
   useEffect(() => {
-    // Fetch the friends and enemies data
     fetch('/data.json')
       .then((res) => res.json())
       .then((data) => setData(data));
 
-    // Fetch Lottie animations from public folder
     fetch('/b5.json')
       .then((response) => response.json())
       .then((data) => setFriendAnimationData(data));
 
-    fetch('/b2.json') // Change this to the correct file for enemies if different
+    fetch('/b2.json')
       .then((response) => response.json())
       .then((data) => setEnemyAnimationData(data));
   }, []);
@@ -33,23 +34,15 @@ const Live = () => {
         
         {/* Friends Section */}
         <div className="flex flex-col bg-white h-[38rem] w-full rounded-2xl shadow-lg p-6 items-center justify-between transform transition duration-300 hover:scale-105">
-          {/* Relatable Text for Friends */}
           <div className="text-center">
             <p className="bg-sky-500 text-white text-2xl py-2 px-4 rounded-full shadow-md">Friends</p>
-
             <h2 className="text-xl mt-4 font-semibold text-gray-800">Cherished Connections</h2>
-            <p className="text-gray-600 mt-2">
-              These are the people who stand by your side, through thick and thin. Your trusted circle of friends, always there to support you.
-            </p>
+            <p className="text-gray-600 mt-2">These are the people who stand by your side, through thick and thin. Your trusted circle of friends, always there to support you.</p>
           </div>
 
-          {/* Lottie Animation for Friends */}
           {friendAnimationData && (
-            <Lottie
-              autoplay
-              loop
-              play
-              animationData={friendAnimationData}  // Use the fetched animation data
+            <ClientLottie
+              animationData={friendAnimationData}
               className="w-72 h-72 mb-28"
             />
           )}
@@ -62,24 +55,16 @@ const Live = () => {
 
         {/* Enemies Section */}
         <div className="flex flex-col bg-white h-[38rem] w-full rounded-2xl shadow-lg p-6 items-center justify-between transform transition duration-300 hover:scale-105">
-          {/* Relatable Text for Enemies */}
           <div className="text-center">
             <p className="bg-red-500 text-white text-2xl py-2 px-4 rounded-full shadow-md">Enemies</p>
-
             <h2 className="text-xl mt-4 font-semibold text-gray-800">Frenemies or Foes?</h2>
-            <p className="text-gray-600 mt-2">
-              They challenge you, push your boundaries, and sometimes remind you of the value of keeping your friends closer.
-            </p>
+            <p className="text-gray-600 mt-2">They challenge you, push your boundaries, and sometimes remind you of the value of keeping your friends closer.</p>
           </div>
 
-          {/* Lottie Animation for Enemies */}
           {enemyAnimationData && (
-            <Lottie
-              autoplay
-              loop
-              play
-              animationData={enemyAnimationData}  // Use the fetched animation data
-              className=" w-72 h-72 mb-28"
+            <ClientLottie
+              animationData={enemyAnimationData}
+              className="w-72 h-72 mb-28"
             />
           )}
 
