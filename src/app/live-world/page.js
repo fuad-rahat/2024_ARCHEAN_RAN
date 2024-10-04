@@ -29,7 +29,7 @@ const Page = () => {
 
       {/* Button Section */}
       <div className="mt-6">
-        <Link href={'/live-world/all'}>
+        <Link href={'/all'}>
           <button className="bg-sky-500 hover:bg-sky-600 transition-colors duration-300 text-white font-bold py-3 px-8 rounded-xl text-2xl shadow-md">
             Subset Bade World
           </button>

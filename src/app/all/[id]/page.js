@@ -63,13 +63,13 @@ export default function DataDetails({ params }) {
         </div>
 
         <div className="flex justify-between mt-6">
-          <Link href={`/live-world/all/${prevId}`}>
+          <Link href={`/all/${prevId}`}>
             <button className="p-2 bg-sky-500 text-white rounded-lg shadow-md hover:bg-sky-600 transition ease-in-out duration-200">
               Previous
             </button>
           </Link>
 
-          <Link href={`/live-world/all/${nextId}`}>
+          <Link href={`/all/${nextId}`}>
             <button className="p-2 bg-sky-500 text-white rounded-lg shadow-md hover:bg-sky-600 transition ease-in-out duration-200">
               Next
             </button>

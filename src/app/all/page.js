@@ -1,7 +1,12 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import { AnimatedTooltip } from '@/components/ui/animated-tooltip';
-import Lottie from 'react-lottie-player';  // Import Lottie player
+import dynamic from 'next/dynamic';
+import React, { useEffect, useState } from 'react';
+
+// Assuming LottiePlayer is a default export
+const LottiePlayer = dynamic(() => import('react-lottie-player').then((mod) => mod.default), { ssr: false });
+
+// Assuming AnimatedTooltip is a named export
+const AnimatedTooltip = dynamic(() => import('@/components/ui/animated-tooltip').then((mod) => mod.AnimatedTooltip), { ssr: false });
 
 const Live = () => {
   const [data, setData] = useState([]);
@@ -9,19 +14,25 @@ const Live = () => {
   const [enemyAnimationData, setEnemyAnimationData] = useState(null);
 
   useEffect(() => {
-    // Fetch the friends and enemies data
-    fetch('/data.json')
-      .then((res) => res.json())
-      .then((data) => setData(data));
+    const fetchData = async () => {
+      try {
+        const res = await fetch('/data.json');
+        const json = await res.json();
+        setData(json);
 
-    // Fetch Lottie animations from public folder
-    fetch('/b5.json')
-      .then((response) => response.json())
-      .then((data) => setFriendAnimationData(data));
+        const friendAnimation = await fetch('/b5.json');
+        const friendAnimData = await friendAnimation.json();
+        setFriendAnimationData(friendAnimData);
 
-    fetch('/b2.json') // Change this to the correct file for enemies if different
-      .then((response) => response.json())
-      .then((data) => setEnemyAnimationData(data));
+        const enemyAnimation = await fetch('/b2.json');
+        const enemyAnimData = await enemyAnimation.json();
+        setEnemyAnimationData(enemyAnimData);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const friends = data.filter((item) => item.isFriend);
@@ -40,7 +51,7 @@ const Live = () => {
           </div>
 
           {friendAnimationData && (
-            <Lottie
+            <LottiePlayer
               autoplay
               loop
               play
@@ -64,7 +75,7 @@ const Live = () => {
           </div>
 
           {enemyAnimationData && (
-            <Lottie
+            <LottiePlayer
               autoplay
               loop
               play
@@ -78,7 +89,6 @@ const Live = () => {
           </div>
           <p className="text-gray-600 text-sm mt-5">Total Enemies: {enemies.length}</p>
         </div>
-
       </div>
     </div>
   );

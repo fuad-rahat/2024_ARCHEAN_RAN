@@ -84,7 +84,7 @@ export const AnimatedTooltip = ({ items }) => {
           </AnimatePresence>
 
           {/* Conditionally render Lottie or Image */}
-          <Link href={`/live-world/all/${item.id}`}>
+          <Link href={`/all/${item.id}`}>
             {item.lottie && lottieData[item.id] ? (
               <Lottie
                 play
