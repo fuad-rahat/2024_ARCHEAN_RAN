@@ -14,7 +14,7 @@ export default function Home() {
       </div>
 
       <div className="min-h-screen bg-cover bg-center flex items-center justify-center">
-        <div className="flex absolute left-5 flex-col gap-2">
+        <div className="flex absolute left-14 flex-col gap-2">
           <p className="p-2 text-2xl text-center rounded-xl text-green-400 bg-gray-500">Resources</p>
         <a href="https://oceanworlds.space/storyboard/">
         <Image
