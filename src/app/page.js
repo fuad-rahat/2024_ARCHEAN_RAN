@@ -1,18 +1,49 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="bg-[url('/s2.jpg')]">
       <div className="absolute pt-32 flex pl-96 flex-col justify-center items-center">
-        <p className="text-blue-400 text-6xl text-center pt-5 -mb-10">Welcome to the new world</p>
+        <p className="text-green-400 text-6xl text-center pt-5 -mb-10">Welcome to the new world</p>
         
         {/* Applying Mukta Font */}
-        <p className="text-blue-400 text-center text-xl font-bold mt-4 pt-10 -mb-10" style={{ fontFamily: 'Mukta, sans-serif' }}>
+        <p className="text-green-200 text-center text-xl font-bold mt-4 pt-10 -mb-10" style={{ fontFamily: 'Mukta, sans-serif' }}>
         Have you ever wondered how life would live without the sun or how an ecosystem would be formed?
         </p>
       </div>
 
       <div className="min-h-screen bg-cover bg-center flex items-center justify-center">
+        <div className="flex absolute left-5 flex-col gap-2">
+          <p className="p-2 text-2xl text-center rounded-xl text-green-400 bg-gray-500">Resources</p>
+        <a href="https://oceanworlds.space/storyboard/">
+        <Image
+                src={`/resources1.jpg`}
+                
+                width={240}
+                height={240}
+                className="  w-40 m-1 h-40 object-cover mx-auto rounded-lg shadow-md"
+              />
+        </a>
+        <a href="https://science.nasa.gov/toolkit/oceanworlds/">
+        <Image
+                src={`/resources2.jpg`}
+                
+                width={240}
+                height={240}
+                className="  w-40 m-1 h-40 object-cover mx-auto rounded-lg shadow-md"
+              />
+        </a>
+        <a href="https://oceanworlds.space/storyboard/">
+        <Image
+                src={`/resources3.jpg`}
+                
+                width={240}
+                height={240}
+                className="  w-40 m-1 h-40 object-cover mx-auto rounded-lg shadow-md"
+              />
+        </a>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 p-3 mt-44 max-w-5xl mx-auto">
           
           {/* Archean Section */}
