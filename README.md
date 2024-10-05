@@ -7,7 +7,7 @@ This project is crafted with [Next.js](https://nextjs.org/), leveraging the powe
 <details>
 <summary><strong>🔧 Setup Instructions</strong></summary>
 
-### Step 1: Clone the repository
+### Follow line by line
 ```bash
 git clone https://github.com/fuad-rahat/2024_ARCHEAN_RAN.git
 cd 2024_ARCHEAN_RAN
