@@ -8,6 +8,7 @@ export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false); // State for toggling minimize/maximize
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ export default function Home() {
       const result = res.data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
       const paragraphs = result.split(/\n\s*\n/).filter(paragraph => paragraph.trim() !== "");
       setResponse(paragraphs);
+      setPrompt(''); // Clear input box on success
     } catch (error) {
       console.error('Error fetching data:', error);
       setResponse(["An error occurred. Please try again."]);
@@ -139,16 +141,30 @@ export default function Home() {
               {loading ? "Loading..." : "Submit"}
             </button>
           </form>
+
           {response.length > 0 && (
-            <div className="mt-4 max-w-4xl max-h-72 overflow-y-scroll p-3 bg-gray-800 text-cyan-300 rounded-lg shadow-lg border border-cyan-500 space-y-4">
-              {response.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className={`leading-relaxed ${index === 0 ? 'font-bold text-xl text-white' : ''}`}
-                >
-                  {paragraph}
-                </p>
-              ))}
+            <div className="relative mt-4 max-w-4xl p-3 bg-gray-800 text-cyan-300 rounded-lg shadow-lg border border-cyan-500">
+              {/* Toggle minimize/maximize buttons */}
+              <button
+                onClick={() => setIsMinimized(!isMinimized)}
+                className="absolute top-2 right-2 bg-cyan-500 hover:bg-cyan-600 text-white px-3 py-1 rounded-full"
+              >
+                {isMinimized ? 'Maximize' : 'Minimize'}
+              </button>
+
+              {/* Response Content with Maximize/Minimize Logic */}
+              <div
+                className={`overflow-y-auto transition-all duration-300 ease-in-out ${isMinimized ? 'max-h-12' : 'max-h-72'} space-y-4`}
+              >
+                {response.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className={`leading-relaxed ${index === 0 ? 'font-bold text-xl text-white' : ''}`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
           )}
         </div>
