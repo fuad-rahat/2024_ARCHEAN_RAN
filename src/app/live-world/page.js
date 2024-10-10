@@ -11,18 +11,33 @@ const Page = () => {
   const [loading, setLoading] = useState(false);
   const chatContainerRef = useRef(null);
 
+  // Fixed questions list
+  const fixedQuestions = [
+    "What is the Archean period?",
+    "How did microorganisms form in the Archean?",
+    "What were the environmental conditions like during the Archean?",
+  ];
+
   const handleChatToggle = () => {
     setIsChatOpen(!isChatOpen);
   };
 
   const handleChatSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setChatResponse([...chatResponse, { message: chatInput, response: "Thinking..." }]); // Add "thinking..." as a placeholder
+    sendChatMessage(chatInput);
     setChatInput(""); // Clear input after sending
+  };
+
+  const handleFixedQuestionClick = (question) => {
+    sendChatMessage(question);
+  };
+
+  const sendChatMessage = async (message) => {
+    setLoading(true);
+    setChatResponse([...chatResponse, { message, response: "Thinking..." }]);
 
     try {
-      const res = await axios.post("/api/gemini", { prompt: chatInput });
+      const res = await axios.post("/api/gemini", { prompt: message });
       console.log("Chat API Response:", res.data);
 
       const result =
@@ -32,7 +47,7 @@ const Page = () => {
       // Replace the last "thinking..." message with the actual response
       setChatResponse((prev) => {
         const updated = [...prev];
-        updated[updated.length - 1] = { message: chatInput, response: result };
+        updated[updated.length - 1] = { message, response: result };
         return updated;
       });
     } catch (error) {
@@ -40,7 +55,7 @@ const Page = () => {
       setChatResponse((prev) => {
         const updated = [...prev];
         updated[updated.length - 1] = {
-          message: chatInput,
+          message,
           response: "An error occurred. Please try again.",
         };
         return updated;
@@ -68,21 +83,7 @@ const Page = () => {
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-4">
             <strong>How Microorganisms Are First Created:</strong><br />
-            Microorganisms first appeared on Earth billions of years ago. Scientists believe that, in the early conditions of Earth, simple molecules formed due to chemical reactions in the warm waters. Over time, these molecules combined to create more complex microorganisms. The first microorganisms were very simple, like bacteria. They reproduced by splitting into two, a process called cell division. This early life is thought to have started about 3.8 billion years ago when the Earths environment had hot water, gases, and various chemicals that supported the creation of life.
-          </p>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            <strong>How Microorganisms Live:</strong><br />
-            Microorganisms need certain elements to survive, such as:
-          </p>
-          <ul className="list-disc list-inside text-gray-700 text-lg mb-4">
-            <li>Food: Some microorganisms can produce their own food through photosynthesis or chemical reactions.</li>
-            <li>Heat and Light: Some prefer warm environments and use sunlight as a source of energy.</li>
-            <li>Oxygen or Carbon Dioxide: Microorganisms use these gases from the environment for breathing.</li>
-            <li>Water or Moisture: Most microorganisms need water or a moist environment to live and grow.</li>
-          </ul>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            <strong>Finally, the Ecosystem:</strong><br />
-            An ecosystem is a system where different forms of life are connected and depend on each other. Plants, animals, and microorganisms all play a role in the cycle of life, from creation to decomposition, supporting the balance of nature.
+            Microorganisms first appeared on Earth billions of years ago...
           </p>
         </div>
 
@@ -120,7 +121,21 @@ const Page = () => {
       {isChatOpen && (
         <div className="fixed bottom-20 right-10 w-80 bg-white border border-gray-300 rounded-xl shadow-lg p-4 flex flex-col space-y-4">
           <h3 className="text-xl font-bold text-gray-800">Archean Chatbot</h3>
-          <div ref={chatContainerRef} className="flex-1 overflow-y-auto max-h-64 space-y-3 p-2">
+
+          {/* Fixed Questions Section */}
+          <div className="space-y-2">
+            {fixedQuestions.map((question, index) => (
+              <button
+                key={index}
+                onClick={() => handleFixedQuestionClick(question)}
+                className="text-left bg-gray-100 p-2 rounded-lg shadow-sm hover:bg-gray-200 transition duration-200 w-full"
+              >
+                {question}
+              </button>
+            ))}
+          </div>
+
+          <div ref={chatContainerRef} className="flex-1 overflow-y-auto max-h-64 space-y-3 p-2 mt-4">
             {chatResponse.map((chat, index) => (
               <div key={index} className="bg-gray-100 p-2 rounded-lg shadow-sm">
                 <p className="font-semibold text-blue-600">You:</p>
