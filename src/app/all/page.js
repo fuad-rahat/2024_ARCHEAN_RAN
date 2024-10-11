@@ -97,7 +97,7 @@ const Live = () => {
       
       {/* Figma Link Button */}
       <div className='flex justify-center items-center'>
-        <a href="https://www.figma.com/proto/eLakp9wqJfnheUcNUCZVgO/Nasa-app?node-id=7-53&node-type=canvas&t=6dB1Hc8zj0KcgLJW-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A53" className='absolute bottom-1 mt-2' target="_blank" rel="noopener noreferrer">
+        <a href="https://www.figma.com/proto/J5Qn3pK4LzFjj1FnjdAQLp/arcean?node-id=9-2222" className='absolute bottom-1 mt-2' target="_blank" rel="noopener noreferrer">
           <button className="bg-gradient-to-r  from-sky-500 to-indigo-600 hover:from-indigo-500 hover:to-sky-600 transition-colors duration-300 text-white font-bold px-4 py-2 rounded-full text-lg shadow-md hover:shadow-lg">
             Visit Figma Project
           </button>
