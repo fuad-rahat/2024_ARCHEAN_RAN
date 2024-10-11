@@ -34,18 +34,18 @@ const World = () => {
     if (globeEl.current) {
       // Enable auto-rotate for the globe
       globeEl.current.controls().autoRotate = true;
-      globeEl.current.controls().autoRotateSpeed = 2;
+      globeEl.current.controls().autoRotateSpeed = 0.3;
 
       // Set the point of view to a certain altitude
-      globeEl.current.pointOfView({ altitude: 2.5 }, 5000);
+      globeEl.current.pointOfView({ altitude: 4 }, 5000);
     }
   }, []);
 
   return (
-    <div style={{ width: '100vw', height: '100vh' }}> {/* Set the globe size here */}
+    <div style={{ width: '100vw', height: '100vh' }}>
       <Globe
         ref={globeEl}
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
         polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')} // Exclude Antarctica
         polygonAltitude={altitude}
         polygonCapColor={() => 'rgba(200, 0, 0, 0.6)'}

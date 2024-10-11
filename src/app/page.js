@@ -1,5 +1,9 @@
 'use client';
-import World from '../components/World'; // Ensure this points to your World component
+import dynamic from 'next/dynamic';
+
+const World = dynamic(() => import('../components/World'), {
+  ssr: false, // This will disable server-side rendering for this component
+});
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
