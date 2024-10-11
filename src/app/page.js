@@ -2,10 +2,10 @@
 import World from '../components/World'; // Ensure this points to your World component
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from 'axios';
 
-export default function Home() {
+export default function Page() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -34,12 +34,12 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex items-center justify-center">
       {/* 3D Globe in the background */}
-      <div className="absolute top-0 left-0 w-full h-full z-0">
+      <div className="absolute  top-0 left-0 w-full h-full z-0">
          <World />
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10 min-h-screen ">
         <div className="relative flex top-20 max-w-[90rem] mx-auto flex-col justify-center items-center">
           <p className="text-cyan-400 text-5xl text-center pt-5 -mb-10 font-bold">
             Welcome to the new world
