@@ -1,13 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-const images = [
-    { src: "/img1.jpg", title: "Team Leader", name: "Al Asmoule Chawdhary Ornob" },
-    { src: "/img2.jpg", title: "Developer", name: "Md. Muhtasim Fuad Rahat" },
-    { src: "/img3.jpg", title: "Ui/Ux Designer", name: "Mahbub Alahi Munna" },
-    { src: "/img4.jpg", title: "Video Editor", name: "Snigdha Rani Das" },
-    { src: "/img5.jpg", title: "Researcher", name: "Md Morshadul Islam" }
-];
+
 
 const Page = () => {
     return (
@@ -41,30 +35,7 @@ const Page = () => {
             </div>
 
             {/* Team Section */}
-            <div className="mb-16">
-                <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">Our Team</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-                    {images.map((image, index) => (
-                        <div key={index} className="relative group w-64 h-64 mx-auto">
-                            <div className="w-full h-full overflow-hidden rounded-full shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-110">
-                                <Image
-                                    src={image.src}
-                                    width={256}
-                                    height={256}
-                                    className="object-cover w-full h-full"
-                                    alt={image.title}
-                                />
-                            </div>
-                            <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center p-4 z-10 rounded-full transition duration-300 ease-in-out group-hover:bg-opacity-80 group-hover:scale-110">
-                                <div className="text-white text-center opacity-0 group-hover:opacity-100">
-                                    <p className="text-lg font-semibold">{image.name}</p>
-                                    <p className="text-sm font-medium">{image.title}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+           
         </div>
     );
 };
