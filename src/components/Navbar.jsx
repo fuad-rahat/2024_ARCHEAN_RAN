@@ -78,6 +78,19 @@ export default function Navbar() {
                 Archean
               </button>
             </Link>
+
+            <Link href="/about">
+              <button
+                onClick={() => handleLinkClick('/about')}
+                className={`${
+                  activeLink === '/about'
+                    ? 'bg-orange-500 text-white'
+                    : 'text-white'
+                } hover:text-gray-200 px-4 py-2 rounded-md text-lg font-medium transition-all duration-300 cursor-pointer`}
+              >
+                About
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
